@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Task Scheduler Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="src/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="top-nav">
+        <div class="brand">
+          <div class="brand-logo" aria-hidden="true">⏱️</div>
+          <div class="brand-text">
+            <span class="product">Task Scheduler</span>
+            <span class="tagline">Focus your day</span>
+          </div>
+        </div>
+        <div class="nav-actions" role="group" aria-label="Primary actions">
+          <div class="search">
+            <svg
+              class="search-icon"
+              width="18"
+              height="18"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <path
+                d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0016 9.5 6.5 6.5 0 109.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
+                fill="currentColor"
+              />
+            </svg>
+            <input
+              type="search"
+              placeholder="Quick search"
+              aria-label="Quick search"
+            />
+          </div>
+          <button class="ghost-btn" type="button" aria-label="Open notifications">
+            <span aria-hidden="true">🔔</span>
+          </button>
+          <button class="ghost-btn" type="button" aria-label="Open filters">
+            <span aria-hidden="true">🧭</span>
+          </button>
+          <button class="avatar" type="button" aria-label="Open profile">
+            <span aria-hidden="true">JD</span>
+          </button>
+        </div>
+      </header>
+
+      <main class="dashboard" aria-labelledby="dashboard-heading">
+        <div class="intro">
+          <div>
+            <h1 id="dashboard-heading">Today&apos;s Workspace</h1>
+            <p>Stay anchored on what matters most.</p>
+          </div>
+          <div class="workspace-meta">
+            <div class="meta-item">
+              <span class="meta-label">Focus Mode</span>
+              <span class="meta-value">Deep Work</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Team</span>
+              <span class="meta-value">Product Design</span>
+            </div>
+            <div class="meta-item">
+              <span class="meta-label">Next Sync</span>
+              <span class="meta-value">2:30 PM</span>
+            </div>
+          </div>
+        </div>
+
+        <section class="tab-bar" role="tablist" aria-label="Workspace views">
+          <button
+            class="tab"
+            role="tab"
+            type="button"
+            data-tab="list"
+            aria-selected="true"
+          >
+            <span class="tab-icon" aria-hidden="true">🗂️</span>
+            <span class="tab-label">Task List</span>
+            <span class="tab-meta">Overview</span>
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            type="button"
+            data-tab="kanban"
+            aria-selected="false"
+          >
+            <span class="tab-icon" aria-hidden="true">🗃️</span>
+            <span class="tab-label">Kanban Board</span>
+            <span class="tab-meta">Flow</span>
+          </button>
+          <button
+            class="tab"
+            role="tab"
+            type="button"
+            data-tab="timeline"
+            aria-selected="false"
+          >
+            <span class="tab-icon" aria-hidden="true">🕒</span>
+            <span class="tab-label">Daily Timeline</span>
+            <span class="tab-meta">Schedule</span>
+          </button>
+        </section>
+
+        <section class="workspace" aria-live="polite">
+          <article class="panel is-active" data-panel="list">
+            <header>
+              <h2>Task List</h2>
+              <p class="panel-subtitle">
+                Review priorities, deadlines, and owners at a glance. Inline actions
+                will live here soon.
+              </p>
+            </header>
+            <div class="placeholder-grid">
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Upcoming deadlines</span>
+                <span class="placeholder-text">Area reserved for sortable table.</span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Quick filters</span>
+                <span class="placeholder-text">
+                  Inline filters for assignee, priority, and date range.
+                </span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Bulk actions</span>
+                <span class="placeholder-text">
+                  Space for selection toolbar and shortcuts.
+                </span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" data-panel="kanban">
+            <header>
+              <h2>Kanban Board</h2>
+              <p class="panel-subtitle">
+                Visualize progress across workflow stages. Drag-and-drop lanes will be
+                anchored here.
+              </p>
+            </header>
+            <div class="placeholder-grid">
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Workflow columns</span>
+                <span class="placeholder-text">Backlog → In Progress → Blocked → Done.</span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Card density</span>
+                <span class="placeholder-text">Designed for quick scan of key fields.</span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Team signals</span>
+                <span class="placeholder-text">Task counts and owner highlights.</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="panel" data-panel="timeline">
+            <header>
+              <h2>Daily Timeline</h2>
+              <p class="panel-subtitle">
+                Block out the day with a responsive timeline. Drag-and-drop rescheduling
+                will land in this region.
+              </p>
+            </header>
+            <div class="placeholder-grid">
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Chronological flow</span>
+                <span class="placeholder-text">Morning through evening slices.</span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Time markers</span>
+                <span class="placeholder-text">Today marker and real-time indicator.</span>
+              </div>
+              <div class="placeholder-card">
+                <span class="placeholder-heading">Zoom controls</span>
+                <span class="placeholder-text">Switch between workday and hourly focus.</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
