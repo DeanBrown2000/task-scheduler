@@ -22,46 +22,27 @@
 body {
   margin: 0;
   min-height: 100vh;
+  background: var(--bg-gradient);
   color: var(--text);
-  background: transparent;
-}
-
-body::before,
-body::after {
-  content: '';
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
 }
 
 body::before {
-  background: rgba(10, 12, 28, 0.32);
-  backdrop-filter: blur(32px) saturate(160%);
-  -webkit-backdrop-filter: blur(32px) saturate(160%);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: linear-gradient(145deg, rgba(20, 24, 45, 0.9), rgba(6, 9, 20, 0.95));
   z-index: -2;
 }
 
 body::after {
-  background: radial-gradient(circle at 20% 20%, rgba(110, 91, 255, 0.18), transparent 60%),
-    radial-gradient(circle at 80% 30%, rgba(255, 90, 120, 0.16), transparent 55%),
-    radial-gradient(circle at 50% 80%, rgba(80, 120, 255, 0.14), transparent 60%);
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: radial-gradient(circle at 20% 20%, rgba(110, 91, 255, 0.1), transparent 60%),
+    radial-gradient(circle at 80% 30%, rgba(255, 90, 120, 0.12), transparent 55%),
+    radial-gradient(circle at 50% 80%, rgba(80, 120, 255, 0.1), transparent 60%);
   z-index: -1;
-}
-
-@supports not (backdrop-filter: blur(1px)) {
-  body {
-    background: var(--bg-gradient);
-  }
-
-  body::before {
-    background: linear-gradient(145deg, rgba(20, 24, 45, 0.9), rgba(6, 9, 20, 0.95));
-    box-shadow: none;
-  }
-
-  body::after {
-    opacity: 0.9;
-  }
+  opacity: 0.9;
 }
 
 .app-shell {
